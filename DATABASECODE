@@ -1,0 +1,201 @@
+#include<iostream> 
+using namespace std;
+//Create Read Update Delete
+int i = 0;
+void names(int& i);
+void edad(int& i);
+void read(int k);
+void nread(int k);
+void replacementn(int& i);
+void replacementa(int& i);
+void replacementm(int& i);
+void majors(int& i);
+string name[50] = { };
+string major[50] = { };
+int deletion[50] = { };
+int age[50] = { };
+int f = -1;
+
+int main()
+{
+	cout << "Welcome, this is the main system for Jordan to register students " << endl;
+	cout << "Student registeration number is " << i + 1 << endl;
+	cout << "Add the name of the attended student :\n";
+	cin >> name[0];
+	cout << "Add the age of the attended student :\n";
+	cin >> age[0];
+	cout << "Add the major of the attended student :\n";
+	cin >> major[0];
+	i++;
+	int c = 15;
+	while (c != 0)
+	{
+		cout << endl;
+		cout << "What operation would you like to do\n1-Create new student information\n2-Read the student information\n3-Update student's information\n"
+			"4-Delete student's information\nTo leave the program press 0" << endl;
+		cin >> c;
+		//f++;
+		cout << endl;
+		switch (c)
+		{
+		case 1:
+		{
+			cout << "Student registeration number is " << i + 1 << endl;
+			names(i);
+			edad(i);
+			majors(i);
+			i++;
+			break;
+		}
+		case 2:
+		{
+			int u;
+			cout << "Which student number do you want to read?" << endl;
+			cin >> u;
+			
+					if (u == deletion[0] || u == deletion[1] || u == deletion[2] || u == deletion[3] || u == deletion[4] || u == deletion[5] ||
+						u == deletion[6] || u == deletion[7] || u == deletion[8] || u == deletion[9] || u == deletion[10] || u == deletion[11] ||
+						u == deletion[12] || u == deletion[13] || u == deletion[14] || u == deletion[15] || u == deletion[16] || u == deletion[17] ||
+						u == deletion[18] || u == deletion[19] || u == deletion[20])
+					nread(u);
+			else
+				read(u);
+			break;
+		}
+		case 3:
+		{
+			int r = 9;
+			cout << "Which student would you like to edit his/her info.?\n";
+			cin >> r;
+			if (r == deletion[0] || r == deletion[1] || r == deletion[2] || r == deletion[3] || r == deletion[4] || r == deletion[5] ||
+				r == deletion[6] || r == deletion[7] || r == deletion[8] || r == deletion[9] || r == deletion[10] || r == deletion[11] ||
+				r == deletion[12] || r == deletion[13] || r == deletion[14] || r == deletion[15] || r == deletion[16] || r == deletion[17] ||
+				r == deletion[18] || r == deletion[19] || r == deletion[20])
+				nread(r);
+			else
+			{
+				cout << "The current info. for the student as follows:\n";
+				read(r);
+				while (r != 0)
+				{
+					cout << "What do you want to edit?\n1-Name\n2-Age\n3-Major\nPress 0 if you are done with editing";
+					cin >> r;
+					switch (r)
+					{
+					case 1:
+					{
+						replacementn(i);
+						break;
+					}
+					case 2:
+					{
+						replacementa(i);
+						break;
+					}
+					case 3:
+					{
+						replacementm(i);
+						break;
+					}
+					}
+
+				}
+			}
+			break;
+		}
+		case 4:
+		{
+			cout << "Which student do you want to delete his info.?" << endl;
+			f++;
+			cin >> deletion[f];
+			break;
+		}
+		}
+	}
+	cout << "Registers are:" << endl;
+	for (int g = 0; g < i; g++)
+	{
+		cout << "Student number" << g + 1 << endl;
+		if (g + 1 == deletion[0] || g + 1 == deletion[1] || g + 1 == deletion[2] || g + 1 == deletion[3] || g + 1 == deletion[4] || g + 1 == deletion[5] ||
+			g + 1 == deletion[6] || g + 1 == deletion[7] || g + 1 == deletion[8] || g + 1 == deletion[9] || g + 1 == deletion[10] || g + 1 == deletion[11] ||
+			g + 1 == deletion[12] || g + 1 == deletion[13] || g + 1 == deletion[14] || g + 1 == deletion[15] || g + 1 == deletion[16] ||
+			g + 1 == deletion[17] || g + 1 == deletion[18] || g + 1 == deletion[19] || g + 1 == deletion[20])
+			nread(g);
+		else
+			read(g + 1);
+		cout << endl;
+		//copy it to pdf file
+	}
+	return 0;
+}
+void names(int& i)
+{
+	cout << "Add the name of the attended student :\n";
+	for (int s = 0; s < 50; s++)
+	{
+		if (s == i)
+			cin >> name[s];
+	}
+}
+void edad(int& i)
+{
+	cout << "Add the age of the attended student :\n";
+	for (int s = 0; s < 50; s++)
+	{
+		if (s == i)
+			cin >> age[s];
+	}
+
+}
+void majors(int& i)
+{
+	cout << "Add the major of the attended student :\n";
+	for (int s = 0; s < 50; s++)
+	{
+		if (s == i)
+			cin >> major[s];
+	}
+}
+void read(int k)
+{
+	cout << "Name:" << name[k - 1];
+	cout << endl;
+	cout << "Age:" << age[k - 1];
+	cout << endl;
+	cout << "Major:" << major[k - 1];
+	cout << endl;
+}
+void nread(int k)
+{
+	cout << "This registeration number is deleted" << endl;
+}
+void replacementn(int& i)
+{
+	string temp;
+	cout << "Previous name\n";
+	cout << name[i - 1] << endl;
+	cout << "Enter the new name\n";
+	cin >> temp;
+	name[i - 1] = temp;
+	temp = name[i - 1];
+}
+void replacementa(int& i)
+{
+	int temp;
+	cout << "Previous age\n";
+	cout << age[i - 1] << endl;
+	cout << "Enter the new age\n";
+	cin >> temp;
+	age[i - 1] = temp;
+	temp = age[i - 1];
+}
+void replacementm(int& i)
+{
+	string temp;
+	cout << "Previous major name\n";
+	cout << major[i - 1] << endl;
+	cout << "Enter the new major name\n";
+	cin >> temp;
+	major[i - 1] = temp;
+	temp = major[i - 1];
+}
